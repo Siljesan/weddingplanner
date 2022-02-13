@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl, checklistUrl, populate } from "./utils/app";
+import "./sass/style.scss";
 
 function App() {
   const [data, setData] = useState([]);
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <h1>Welcome!</h1>
+      <h2>Wedding checklist:</h2>
       <ul>
         {data.length > 0
           ? data.map((checklist, idx) => {
