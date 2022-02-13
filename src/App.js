@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <button onClick={getChecklist}>get checklist</button>
+      <h1>Welcome!</h1>
       <ul>
         {data.length > 0
           ? data.map((checklist, idx) => {
