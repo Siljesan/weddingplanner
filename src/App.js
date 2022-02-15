@@ -19,17 +19,30 @@ function App() {
     getData(baseUrl + checklistUrl + populate);
   };
 
+  console.log(data);
+
   return (
     <>
       <h1>Welcome!</h1>
       <h2>Wedding checklist:</h2>
-      <ul>
+      <div className="checklist">
         {data.length > 0
           ? data.map((checklist, idx) => {
-              return <li key={idx}>{checklist.attributes.title}</li>;
+              return (
+                <div className="checklistCard" key={idx}>
+                  <div>
+                    <h3>{checklist.attributes.title}</h3>
+                    <p>{checklist.attributes.description}</p>
+                  </div>
+                  <div>
+                    <p>Priority: {checklist.attributes.priority}</p>
+                    <p>Done: {checklist.attributes.done ? "yes" : "no"}</p>
+                  </div>
+                </div>
+              );
             })
           : null}
-      </ul>
+      </div>
     </>
   );
 }
