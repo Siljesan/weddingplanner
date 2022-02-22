@@ -26,16 +26,16 @@ function App() {
           <div>
             {data.length > 0
               ? data.map((season, idx) => {
-                  season.attributes.flowers.data.map((flower) => {
-                    return (
-                      <div key={idx}>
-                        <h3>{season.attributes.title}</h3>
-                        <ul>
-                          <li>{flower.attributes.title}</li>
-                        </ul>
-                      </div>
-                    );
-                  });
+                  return (
+                    <div key={idx}>
+                      <h3>{season.attributes.title}</h3>
+                      <ul>
+                        {season.attributes.flowers.data.map((flower) => {
+                          return <li>{flower.attributes.title}</li>;
+                        })}
+                      </ul>
+                    </div>
+                  );
                 })
               : null}
           </div>
