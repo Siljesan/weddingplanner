@@ -26,15 +26,15 @@ function App() {
           <div>
             {data.length > 0
               ? data.map((season, idx) => {
-                  return season.attributes.flowers.data.forEach((element) => {
-                    const flowers = element.attributes.title;
-                    console.log(flowers);
-                    <div key={idx}>
-                      <h3>{season.attributes.title}</h3>
-                      <ul>
-                        <li>{flowers}</li>
-                      </ul>
-                    </div>;
+                  season.attributes.flowers.data.map((flower) => {
+                    return (
+                      <div key={idx}>
+                        <h3>{season.attributes.title}</h3>
+                        <ul>
+                          <li>{flower.attributes.title}</li>
+                        </ul>
+                      </div>
+                    );
                   });
                 })
               : null}
