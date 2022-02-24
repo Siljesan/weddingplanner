@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl, checklistUrl, populate } from "../utils/app";
+import { InheritedTitle, Titlethree } from "./Title";
 
 function Checklist() {
   const [data, setData] = useState([]);
@@ -15,14 +16,16 @@ function Checklist() {
 
   return (
     <div>
-      <h2>Wedding checklist:</h2>
+      <InheritedTitle as="h2">Wedding checklist:</InheritedTitle>
       <div className="checklist">
         {data.length > 0
           ? data.map((checklist, idx) => {
               return (
                 <div className="checklistCard" key={idx}>
                   <div>
-                    <h3>{checklist.attributes.title}</h3>
+                    <Titlethree as="h3">
+                      {checklist.attributes.title}
+                    </Titlethree>
                     <p>{checklist.attributes.description}</p>
                   </div>
                   <div>

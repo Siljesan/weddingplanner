@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 import Checklist from "./components/Checklist";
+import Flowers from "./components/Flowers";
+import { Title } from "./components/Title";
 import "./sass/style.scss";
 import { baseUrl, populate, seasonUrl } from "./utils/app";
 
@@ -15,31 +18,20 @@ function App() {
 
   console.log(data);
 
-  //Tried to render season relations below.
+  const GlobalStyle = createGlobalStyle`
+  body{
+    background-color: lightpink;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }`;
 
   return (
     <>
       <Router>
-        <h1>Welcome!</h1>
+        <GlobalStyle />
+        <Title>Welcome!</Title>
         <Checklist />
-        <div className="flowers">
-          <div>
-            {data.length > 0
-              ? data.map((season, idx) => {
-                  return (
-                    <div key={idx}>
-                      <h3>{season.attributes.title}</h3>
-                      <ul>
-                        {season.attributes.flowers.data.map((flower) => {
-                          return <li>{flower.attributes.title}</li>;
-                        })}
-                      </ul>
-                    </div>
-                  );
-                })
-              : null}
-          </div>
-        </div>
+        <Flowers />
       </Router>
     </>
   );
