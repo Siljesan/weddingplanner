@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { baseUrl, populate, seasonUrl } from "../utils/app";
+import { InheritedTitle } from "./Title";
 
 function Flowers() {
   const [data, setData] = useState([]);
@@ -14,6 +15,7 @@ function Flowers() {
 
   return (
     <div className="flowers">
+      <InheritedTitle as="h2">Flowers by season</InheritedTitle>
       <div>
         {data.length > 0
           ? data.map((season, idx) => {

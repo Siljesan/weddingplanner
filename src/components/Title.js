@@ -8,7 +8,6 @@ export const Title = styled.h1`
 
 export const InheritedTitle = styled(Title)`
   font-size: 1.5rem;
-  color: black;
 `;
 
 export const Titlethree = styled(InheritedTitle)`
