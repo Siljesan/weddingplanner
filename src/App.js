@@ -8,14 +8,18 @@ import {
   Routes,
 } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
+import Autumn from "./components/Autumn";
 import Checklist from "./components/Checklist";
 import Flowers from "./components/Flowers";
 import Nav from "./components/Nav";
+import Spring from "./components/Spring";
+import Summer from "./components/Summer";
 import { Title } from "./components/Title";
+import Winter from "./components/Winter";
 import Home from "./pages/Home";
+import RickAndMorty from "./pages/RickAndMorty";
 import Season from "./pages/Season";
 import "./sass/style.scss";
-import { baseUrl, populate, seasonUrl } from "./utils/app";
 
 function App() {
   const GlobalStyle = createGlobalStyle`
@@ -32,7 +36,15 @@ function App() {
         <Nav />
         <Title>Welcome!</Title>
         <Routes>
-          <Route path="season" element={<Season />} />
+          <Route path="ricky" element={<RickAndMorty />} />
+
+          <Route path="season" element={<Season />}>
+            <Route index element={<Flowers />} />
+            <Route path="spring" element={<Spring />} />
+            <Route path="summer" element={<Summer />} />
+            <Route path="autumn" element={<Autumn />} />
+            <Route path="winter" element={<Winter />} />
+          </Route>
           <Route index element={<Home />} />
         </Routes>
       </Router>

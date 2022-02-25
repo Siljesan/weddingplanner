@@ -19,6 +19,9 @@ function Nav() {
           <Link to="/">Home</Link>
         </LinkStyle>
         <LinkStyle>
+          <Link to="/ricky">Ricky</Link>
+        </LinkStyle>
+        <LinkStyle>
           <Link to="/season">Seasons</Link>
         </LinkStyle>
       </StyledNav>
